@@ -118,8 +118,28 @@ Therefore, the easiest way to proceed is to create the folder at the root of C: 
 
 1.  There are many geoalgorithms and cartographic tools available in QGIS.  For this case, we will just use a quick Selection and Heatmap to show you some of the potential.
 
-2. 
+2. Right-click on *fixed_birds* shapefile layer and OPEN ATTRIBUTE TABLE.  Note that we can sort and filter on the content of these columns, such as "COMMON.NAM"
+Click on the E "expression" button to open the SQL Expression window.  First enlarge this window horizontally (so we will be able to see all three vertical panels).  Then expand the options in the center panel for "Fields and Values."   In this tree DOUBLE-CLICK on the field:  *COMMON.NAM* and it will appear in our Expression form on the left.   
 
+3. Next we go to the OPERATORS options tree in the center panel and expand it.  Double-click on the LIKE operator and it will appear afer "COMMON.NAM" in the Expression form.
+
+3. Now return to the Fields and values section to click ONCE on the *COMMON.NAM* item.  After the *COMMON.NAM* item is highlighted, click ALL UNIQUE at the lower right.  This should load all the distinct values that occur in the highlight field:  *COMMON.NAM*  Then double-click on one of the values shown in the list on the lower right, for example:  'GREAT BLUE HERON'   Now this Value should be added to the Expression form for a complete SQL Query Expression:
+
+    "COMMON.NAM" LIKE 'Great Blue Heron'
+    
+4.  Click the SELECT button lower right to run the query.  Close the Expression Window, and examine the ATTRIBUTE TABLE.  The top line should indicate that out of the total number of point features 126136, the Query has selected 42455  which are matching 'Great Blue Heron' in the COMMON.NAM field.   Now CLOSE the Attribute Table.  You should see a scattering of the selected features on the Map View.
+
+**Note**: because more than one feature can occur at the SAME x, y coordinates, seeing the distribution and density from the initial selection is not going to give an accurate impression of the real spatial phenomenon.   
+
+5. Now right-click on the Fixed_birds layer and SAVE AS a new Esri Shapefile, called "blue_heron.shp" which will open a dialog window.   In this SAVE AS window be SURE to CHECK the "save only selected features" checkbox!  Otherwise you will end up saving the entired layer of 126136 features into a new file.   Having entered the file name and checked Save Only Selected hit OK.   The new layer should appear in the Layer List and be added to the Map View.
+
+6.  Turn off the rendering of the original data layer, fixed_birds, by UNCHECKING it in the Layers Panel.  Now you should be viewing only the Blue Heron features, which you can check by right-clicking to OPEN ATTRIBUTE TABLE and see number of features.
+
+7.  Now we will use the built-in Kernel Density function, or HEATMAP.  Go to the PLUGINS > Manage and Install Plugins menu, which loads all available plugins.  type HEATMAP in the Search box, and then CHECK the Heatmap item shown in the results to install the plugin.  Close the Plugins window.   
+
+8. Having installed the plugin, we can now go to the menu Raster > Heatmap > Heatmap  which will open a window for kernel density options.  Note the default distance in the Radius field will be in map layer units!  Since our layer is in a plain decimal degree projection (WGS 84), the radius of 20000 degrees is extremely large.  This is deceptive, because the value is actually going to be calculated as 20000 meters (approximately 12 miles).  In any case, let us accept the default value and choose a filename, like "heat1" then hit OK to run our kernel density algorithm.
+
+9.  The result will load into the Layers Panel and map view.  Now we can see that, purely as a function of the number of bird observations that are closer to one another, where are the most common places to see the Great Blue Heron!
 
 
 
