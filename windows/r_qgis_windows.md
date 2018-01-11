@@ -89,7 +89,36 @@ Now you should get some output about the data.table package
     
 Therefore, the easiest way to proceed is to create the folder at the root of C: drive called R_TEMP and move our data folder there.  At this point you should simply grab the complete .zip archive to download from github repo, [R_with_QGIS](https://github.com/vajlex/R_with_QGIS).   Once you have the .zip uncompressed, move the "data" folder to R_TEMP.  Then the path to your data should exist.
 
-15.  
+15.  Review the test_script to understand the functions that we will run in R, then note that the final line is to write the manipulated and selected data into a new .txt file.   
+
+16.  While in the script editor, click on the gear button to EXECUTE the script.  A console window will open.  Click RUN on the lower right to execute.   The progress of the algorithm will be noted on the console.  After running, the window will close.  Go to the working directory to see if the designated output file *fixed_birds* has been generated.
+
+17.  If you find the *fixed_birds_data* file with content, then R has successfully run within QGIS!
+
+
+### Bringing R analytical results into QGIS
+
+1.  Now that we have generated a new .txt file using R, let's add the file to QGIS with the https://github.com/vajlex/R_with_QGIS
+
+2.  Use the Add Delimited Text Layer button and browse to the *fixed_birds_data.txt* file.  Set the File Format to CUSTOM DELIMITERS.   Click COMMA, then TAB, then SPACE, until you find the delimiter that correctly separates the content into columns (as shown in the live PREVIEW at the bottom of the form).  In our case, it should be SPACE that correctly delimits the content. 
+
+3.  Make sure the box for *First record has field names* is checked
+
+3.  Next we must make sure that the correct fields have been used for the X Field and Y Field values.  In this case, QGIS has guessed that X Field = "LONGITUDE"  and Y Field = "LATITUDE".  Take a visual look at the data in the PREVIEW area to see if this looks correct.  Those values should be numbers in decimal degrees.
+
+4.  Now we can hit OK and we will be prompted to specify the Coordinate Reference System (CRS) or Projection definition.  We can accept the default global projection in decimal degrees:  WGS 84.  Then hit OK and the data should be imported as points into QGIS
+
+5.  In the LAYERS PANEL, right click on the layer we have imported, called "fixed_birds_data"  then ZOOM TO LAYER.   The Map View will recenter on the extent containing all the imported data.   Note that our original R Script (which eliminated any data with the STATE VALUE of OHIO) has worked properly in filtering the data, and putting the x, y values in the proper fields.
+
+6.  In order to run further spatial analysis tasks on our data, right click on the layer *fixed_birds_data*  and SAVE AS a new ESRI SHAPEFILE, for example:   C:\R_TEMP\shape\fixed_birds.shp
+
+7.  The new Shapefile layer will be added to the QGIS project.   Right-click on the original fixed_birds_data.txt layer and REMOVE it from the project.  Now we have brought our working data into QGIS and left the original R analysis .txt file untouched.
+
+### Spatial Analysis in QGIS
+
+1.  There are many geoalgorithms and cartographic tools available in QGIS.  For this case, we will just use a quick Selection and Heatmap to show you some of the potential.
+
+2. 
 
 
 
