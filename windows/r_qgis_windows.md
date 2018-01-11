@@ -54,7 +54,43 @@ RStudio: 1.1.383 [rstudio](https://www.rstudio.com/)
 
 4.  now you should have a new branch under R Scripts > Tools  called *Vector Processing* and under this branch you will find the function *Scatterplot types*.  If you right-click on a tool, you have opttions to EDIT, EXECUTE and DELETE the script.
 
-5.  Now let's try the *Create new R script* tool, which opens an editor.  We can go to our sample script and view the [raw content]() 
+5.  Now let's try the *Create new R script* tool, which opens an editor. 
+
+6.  Go to our sample script and view the [raw content](https://github.com/vajlex/R_with_QGIS/blob/master/r_script/bird_data.rsx) then COPY the script and PASTE it into the QGIS R Script Editor
+
+7.  Click Save As and note that the default folder is the location that is currently defined under Processing > Options > Providers > R > R User Library Folder.  give your script a filename, such as *test_script* and hit SAVE
+
+8.  If you CLOSE the Script Editor, you will now see a new branch in the Toolbox under R Scripts called "User R Scripts" and this should contain your "test_script"
+
+9.  Right click on the *test_script* tool and you can EDIT, EXECUTE or DELETE.  We will click on EDIT to examine the script.
+
+10. Note that the first line in the script calls the library "data.table" and we have not INSTALLED that library in our local R instance.   Therefore we should keep in mind that you must first install any dependencies and libraries in R (or RStudio) BEFORE attempting to run the R Script in QGIS.   QGIS does not have the ability to install libraries, so we will first launch RStudio.
+
+11.  In RStudio console, run 
+
+    test.data.table  
+    
+In a fresh install, you will probably get "Error:  object 'test.data.table' not found
+
+12.  In RStudio console, run 
+
+    install.packages("data.table")
+
+13.  Then run
+
+    require(data.table)
+    test.data.table
+    
+Now you should get some output about the data.table package
+
+14.  Having installed our main package, return to QGIS R Script Editor.  the next issue to sort out is the location and path to our data file.   IN the sample script, the command is to set the working directory here:
+
+    wd <- "C:/R_TEMP/data"
+    
+Therefore, the easiest way to proceed is to create the folder at the root of C: drive called R_TEMP and move our data folder there.  At this point you should simply grab the complete .zip archive to download from github repo, [R_with_QGIS](https://github.com/vajlex/R_with_QGIS).   Once you have the .zip uncompressed, move the "data" folder to R_TEMP.  Then the path to your data should exist.
+
+15.  
+
 
 
 
