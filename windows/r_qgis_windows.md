@@ -147,8 +147,32 @@ _[NOTE: Because more than one feature can occur at the SAME x, y coordinates, se
 
 2.  For example we could examine the locations of State Parks in the area of study, to see if the areas where sightings are most frequest occur in a designated park, or just for convenience in labeling the parks for cartography.
 
-3. 
+3. In our _data_ folder that we downloaded and moved to C:\R_TEMP\data  we should have a sub-folder called _concat_.   In this folder there are four files containing parks information for the states:  NH, MA, ME, VT.   Now we want to merge (or concatenate) these files into a single .csv file.
 
+4.  NOTE:  this data was extracted from the USGS Board of Geographich Names, GNIS Features, available here:  https://geonames.usgs.gov/domestic/download_data.htm   After downloading and unzipping the data, each state is imported to QGIS using the "add delimited text" tool.   The selection for each state is made to find only the features designated as "parks" using the EXPRESSION Query:  
+```
+"FEATURE_CLASS" LIKE 'parks'
+```
+The selected rows were then exported to .csv files, separately.
+
+5. Now we can run the "concat_states.rsx" script, or create a new script in our QGIS R Scripts tools, then paste the contents of the script located here:
+https://github.com/vajlex/R_with_QGIS/blob/master/r_script/concat_states.rsx
+
+6. Once we have the R script created and saved, we can EXECUTE the script, then in the console click RUN.
+
+7. When the script is finished, the console will close.  Check the list of files in the folder:  C:\R_TEMP\data\concat   where we should have a new file:  merge_states.csv
+
+8. If we open the merge_states.csv we'll see that the Field Names were lost in the merge function, we can add them back (see the field_names.csv file in the Concat folder).
+
+8.  In QGIS we can use the "add delimited text" tool to import merge_states.csv into our map project.   Note that the field containing X Coordinate (Longitude) is called LONG_DD,  and the field containing Y Coordinate (Latitute) is called LAT_DD. 
+
+9.  Having added the .csv layer, we can see that there are some points included that are clearly NOT in New England states.   First let's right click on the layer and SAVE AS a new shapefile (which gives us full editing and analysis abilities).  Once the new Shapefile Layer is added to our project, right click on the .csv layer and REMOVE it from the layers list.
+
+10. We can click on the PENCIL icon (Edit Layer tool) to make the active layer editable.  Then using the SELECT by rectangle tool, we can easily select the points that are outside of New England, CUT them, and click the PENCIL icon to accept the changes.  Now, right-click and Zoom to Layer should bring us back to New England.
+
+11.  From here we can place the parks over our Herons heatmap and zoom in to an area of interest.   By selecting a few parks that overlap the highest frequency areas of blue heron sightings, we can SAVE AS (selected features only) to a new layer.  Then, in the PROPERTIES > Labels menu for the parks we have selected, we can Label them to provide contextual info about the areas of highest frequency.
+
+12.  Finally, we could go to Project > New Print Composer to set up a map layout for printing, or exporting at high resolution (for publication).
 
 
 
