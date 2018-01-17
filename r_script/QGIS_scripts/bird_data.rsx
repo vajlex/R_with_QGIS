@@ -1,3 +1,4 @@
+# bird_data cleaning
 library(data.table)
 wd <- "C:/R_TEMP/data"
 setwd(wd)

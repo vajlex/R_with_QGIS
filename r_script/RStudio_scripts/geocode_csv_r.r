@@ -1,5 +1,4 @@
-
-# Geocoding a csv column of "addresses" in R
+# Geocoding a csv column named "addresses" in R
 # Source:  https://gist.github.com/aleszu/04a486ec0c3f61a8e7ce8f9b37d9e986#file-geocode-csv-r
 
 #load ggmap
