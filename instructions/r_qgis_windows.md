@@ -15,7 +15,7 @@ Instructor:  [Lex Berman](http://www.iq.harvard.edu/people/lex-berman)
 
 ### setup options
 
-1.  Install the software listed above
+1.  Install the software:  R, RStudio, QGIS
 
 2.  Open RStudio to verify that the R installation is working
 
