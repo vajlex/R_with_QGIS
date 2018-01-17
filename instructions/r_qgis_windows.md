@@ -19,6 +19,13 @@ Instructor:  [Lex Berman](http://www.iq.harvard.edu/people/lex-berman)
 
 2.  Open RStudio to verify that the R installation is working
 
+3.  In RStudio install these packages:
+```
+data.table
+sp   
+ggplot2   
+ggmap
+```
 3.  Open QGIS Desktop 2.18
 
 4.  Under the main menu: Processing > Options > Providers > R
