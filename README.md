@@ -10,17 +10,27 @@ Instructor:  [Lex Berman](http://www.iq.harvard.edu/people/lex-berman)
 
 <hr>   
 
-_NOTE_:  the main instructions will be for WINDOWS machines.   
 
-We will review Mac OSX options, where R can be used **alongside** QGIS, but fails to run within the QGIS Processing scripts (from El Capitan on)._
-
-
-Folders:
+### Folders:
 
 **data** files for use in the session
 
-**mac**  instructions for Mac OSX  
+**instructions**  for DataFest session
 
-**windows** instructions for Windows OS
+**r_script**  versions for QGIS and RStudio
+
+**Slides**  PDF of presentation slides
+
+
+### Software:  
+
+QGIS: Version 2.18.15 [www.qgis.org](http://www.qgis.org)
+
+SAGA:  Version Included with QGIS
+
+R: Version 3.4.3  [cran-r](https://cran.r-project.org/)
+
+RStudio: 1.1.383 [rstudio](https://www.rstudio.com/)
+
 
 

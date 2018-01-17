@@ -10,17 +10,8 @@ Instructor:  [Lex Berman](http://www.iq.harvard.edu/people/lex-berman)
 
 **Overview:  This session will introduce setup and use of R within QGIS.**
 
-*NOTE:*  the instructions will be for WINDOWS machines.   On Mac OSX, R can be used **alongside** QGIS, but fails to run within the QGIS Processing scripts (from El Capitan on).
+*NOTE:*  We will start in RStudio, then use QGIS (for Windows to show integration of R Scripts within QGIS Processing Toolbox).   For Mac OSX users, the R Scripts may not function (depending on your installation and "System Integrity Protection"), but all R scripts can be run in RStudio and the outputs loaded into QGIS to achieve the same results.
 
-**Software:**  
-
-QGIS: Version 2.18.15 [www.qgis.org](http://www.qgis.org)
-
-SAGA:  Version Included with QGIS
-
-R: Version 3.4.3  [cran-r](https://cran.r-project.org/)
-
-RStudio: 1.1.383 [rstudio](https://www.rstudio.com/)
 
 ### setup options
 
