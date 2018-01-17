@@ -3,8 +3,8 @@ wd <- "C:/R_TEMP/data/concat"
 setwd(wd)
 filenames <- list.files(full.names=TRUE)
 All <- lapply(filenames,function(i){
-  read.csv(i, header=FALSE, skip=1)
-  })
-df <- do.call(rbind.data.frame, All)  
+read.csv(i, header=TRUE, skip=0)
+})
+df <- do.call(rbind.data.frame, All)
 head(df)
-write.csv(df,"merge_states.csv", row.names=FALSE)
+write.csv(df,"../merge_states.csv", row.names=FALSE)
